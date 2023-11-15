@@ -16,7 +16,7 @@ export default function Sidebar({ navigation }) {
   // code for getting the name of users
   const getPhone = async () => {
     let getPhone = await AsyncStorage.getItem('userPhone');
-    let getAPI = await fetch('http://10.0.2.2:5600/profile', {
+    let getAPI = await fetch('http://192.168.100.19:5600/profile', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ phone: getPhone })

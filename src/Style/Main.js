@@ -25,7 +25,7 @@ const mainStyle = StyleSheet.create({
 
     },
     cartStyle: {
-        backgroundColor: "rgb(84, 81, 81)",
+        backgroundColor: "rgb(4, 66, 59)",
         borderWidth: 1,
         borderColor: "white"
     },
@@ -74,7 +74,9 @@ const mainStyle = StyleSheet.create({
     },
     badgeNotify: {
         position: 'absolute',
-        marginTop: -7
+        marginTop: -7,
+        backgroundColor:"orangered",
+        color:"white"
     },
     flatListStyle: {
         flexDirection: 'row',
@@ -82,24 +84,27 @@ const mainStyle = StyleSheet.create({
         marginTop: 10,
         padding: 8,
         borderRadius: 5,
-        backgroundColor: "rgb(229, 222, 222)"
+        backgroundColor: "grey",
+       
 
     },
     downArrow: {
         borderWidth: 1,
-        borderColor: "orange",
+        borderColor: "orangered",
         alignSelf: 'center'
     },
     billAmount: {
         textAlign: 'center',
         fontSize: 15,
-        backgroundColor: "rgb(87, 224, 208)",
+        backgroundColor: "rgb(4, 66, 59)",
         padding: 5,
         width: '80%',
         alignSelf: 'center',
         elevation: 2,
         borderRadius: 2,
-        fontWeight: "bold"
+        fontWeight: "bold",
+
+        color:"white"
     },
     referalRewardView: {
         flexDirection: "row",

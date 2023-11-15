@@ -61,7 +61,7 @@ function Home({ navigation }) {
 
         // Call both functions when the component is pressed.
         hideCoupen();
-        navigation.navigate('Product');
+        navigation.navigate('Camera');
     }
 
     // FUNCTION FOR SKIP COUPON 
@@ -69,7 +69,7 @@ function Home({ navigation }) {
         await AsyncStorage.setItem("couponCode", 0)
         // Call both functions when the component is pressed.
         hideCoupen();
-        navigation.navigate('Product');
+        navigation.navigate('Camera');
     }
     // code for demo data
     const demoData = [
@@ -128,11 +128,11 @@ function Home({ navigation }) {
                     {/* CODE FOR REFER & REWARD SECTION */}
 
                     <View style={mainStyle.referalRewardView}>
-                        <Button icon="share" mode="contained" onPress={showModal} style={{ borderRadius: 3, width: '40%', backgroundColor: "rgb(4, 66, 59)", elevation: 5 }} >
+                        <Button icon="share" mode="contained" onPress={showModal} dark={true} style={{ borderRadius: 3, width: '40%', backgroundColor: "rgb(4, 66, 59)", elevation: 5 }} >
                             Referal
                         </Button>
 
-                        <Button icon="trophy" mode="contained" style={{ borderRadius: 3, marginLeft: 10, width: '40%', backgroundColor: "rgb(4, 66, 59)", elevation: 5 }}>
+                        <Button icon="trophy" mode="contained" dark={true} style={{ borderRadius: 3, marginLeft: 10, width: '40%', backgroundColor: "rgb(4, 66, 59)", elevation: 5 }}>
                             Reward Points
                         </Button>
 
@@ -155,8 +155,8 @@ function Home({ navigation }) {
                             data={demoData}
                             renderItem={({ item }) => (
                                 <View style={mainStyle.flatListStyle}>
-                                    <Text style={{ fontWeight: "bold" }}>INR {item.itemPrice}</Text>
-                                    <Text style={{ fontWeight: "bold" }}>{item.date}</Text>
+                                    <Text style={{ fontWeight: "normal", color: "white" }}>INR {item.itemPrice}</Text>
+                                    <Text style={{ fontWeight: "normal", color: "white" }}>{item.date}</Text>
                                 </View>
                             )}
                         />
@@ -166,9 +166,9 @@ function Home({ navigation }) {
                         <IconButton
                             icon="chevron-down"
                             mode='contained-tonal'
-                            iconColor={MD3Colors.information50}
+                            iconColor={MD3Colors.information}
                             size={25}
-                            style={mainStyle.downArrow} containerColor='rgb(235, 178, 157)' onPress={() => { navigation.navigate('history') }}
+                            style={mainStyle.downArrow} containerColor='orangered' onPress={() => { navigation.navigate('history') }}
                         />
                         <Text style={mainStyle.billAmount}>Total Amount : INR 4700</Text>
 

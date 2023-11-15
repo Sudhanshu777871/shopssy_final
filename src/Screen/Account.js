@@ -47,7 +47,7 @@ function Account({ navigation }) {
         } else {
             setIsPasswordValid(false);
             // code for calling the function
-            let getAPI = 'http://10.0.2.2:5600/signup';
+            let getAPI = 'http://192.168.100.19:5600/signup';
             let callAPI = await fetch(getAPI, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -116,6 +116,7 @@ function Account({ navigation }) {
                 style={{ backgroundColor: "red" }}
                 action={{
                     label: 'OK',
+                    labelStyle: { color: "white", backgroundColor: 'grey', paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, elevation: 5, borderRadius: 10 },
                     onPress: () => {
                         // Do something
                     },

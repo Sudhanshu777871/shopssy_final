@@ -39,7 +39,7 @@ function Login({ navigation }) {
         } else {
             setIsPasswordValid(false);
             // code for calling the function
-            let getAPI = 'http://10.0.2.2:5600/login';
+            let getAPI = 'http://192.168.100.19:5600/login';
             let callAPI = await fetch(getAPI, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

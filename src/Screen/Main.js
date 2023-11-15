@@ -4,7 +4,8 @@ import { IconButton, Text } from 'react-native-paper';
 import Home from './Home';
 import History from './History';
 
-import Product from './Product';
+import Camera from './Camera';
+
 
 export default function Main() {
   const BottomNavigator = createBottomTabNavigator();
@@ -28,7 +29,7 @@ export default function Main() {
 
 
 
-      <BottomNavigator.Screen name="Product" component={Product} options={{
+      <BottomNavigator.Screen name="Camera" component={Camera} options={{
         headerShown: false, tabBarLabel: '', tabBarIcon: ({ color }) => (
           <IconButton
             icon={require('../Img/scan.png')}

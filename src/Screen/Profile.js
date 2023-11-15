@@ -21,7 +21,7 @@ function Profile({ navigation }) {
   const getPhone = async () => {
     let getPhone = await AsyncStorage.getItem('userPhone');
     setUserPhoneNo(getPhone);
-    let getAPI = await fetch('http://10.0.2.2:5600/profile', {
+    let getAPI = await fetch('http://192.168.100.19:5600/profile', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ phone: getPhone })
@@ -58,7 +58,7 @@ function Profile({ navigation }) {
       }
       else {
         setIsNewPasswordValid(false)
-        let getAPIPass = await fetch('http://10.0.2.2:5600/update_password', {
+        let getAPIPass = await fetch('http://192.168.100.19:5600/update_password', {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ currentPass: curentPassword, newPass: newPassword, phone: userPhoneNo })
@@ -123,7 +123,7 @@ function Profile({ navigation }) {
           )}
 
           <Button icon="send" mode="elevated" elevation={10} textColor='white' labelStyle={{ fontSize: 20 }} style={profileStyle.changePassBtn} onPress={handlePasswordChange} >
-            Change Password
+            Change 
           </Button>
         </View>
       </ScrollView>
@@ -131,7 +131,7 @@ function Profile({ navigation }) {
       <Snackbar
         visible={snackVisible}
         onDismiss={() => { setSnackVisible(false) }}
-        style={{ backgroundColor: "grey" }}
+        style={{ backgroundColor: "red" }}
         action={{
           label: 'OK',
           labelStyle: { color: "white", backgroundColor: 'grey', paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, elevation: 5, borderRadius: 10 },

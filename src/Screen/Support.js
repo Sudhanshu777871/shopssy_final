@@ -20,7 +20,7 @@ function Support() {
       setErrorMsg(true)
     } else {
       setErrorMsg(false)
-      let getAPI = await fetch('http://10.0.2.2:5600/support', {
+      let getAPI = await fetch('http://192.168.100.19:5600/support', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ msg: textAreaInput, phone: phoneNo })
