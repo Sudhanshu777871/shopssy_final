@@ -70,7 +70,7 @@ function Login({ navigation }) {
                 {/* CODE FOR LOGIN COMPONENT */}
                 <View style={loginStyle.loginView}>
                     <TextInput label="Phone" mode='outlined' outlineColor='black' activeOutlineColor='grey' style={loginStyle.inputStyle} keyboardType='numeric' value={phone} onChangeText={(txt) => { setPhone(txt) }} right={<TextInput.Icon icon="phone" />} />
-                    
+
                     {isPhoneValid && <Text style={loginStyle.errorText}>Invalid phone number & not Include +91</Text>}
 
                     <TextInput label="Password" mode='outlined' outlineColor='black' activeOutlineColor='grey' value={password} onChangeText={(txt) => { setPassword(txt) }} secureTextEntry style={loginStyle.inputStyle} right={<TextInput.Icon icon="eye" />} />

@@ -8,7 +8,7 @@ const cameraStyle = StyleSheet.create({
         alignItems:'center'
     },
     detectedText:{
-        fontSize:15,
+        fontSize:20,
         color:"white",
     }
 

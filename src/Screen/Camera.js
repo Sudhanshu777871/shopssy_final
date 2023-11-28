@@ -1,15 +1,13 @@
 import { React, useState, useEffect } from 'react'
 import cameraStyle from '../Style/CameraStyle'
-import { View, Text, ActivityIndicator, ScrollView } from "react-native";
+import { View, Text } from "react-native";
 import { launchCamera } from 'react-native-image-picker';
 import { Button } from 'react-native-paper';
-
-function Camera() {
+import { useFocusEffect } from '@react-navigation/native';
+function Camera({ navigation }) {
   // State to hold extracted text and loadingStatus
 
   const [extractedText, setExtractedText] = useState("");
-  const [loadingStatus, setLoadingStatus] = useState(false)
-  const [showContent, setShowContent] = useState(false);
   const pickImageCamera = async () => {
 
     const options = {
@@ -25,9 +23,7 @@ function Camera() {
       } else if (response.error) {
         console.log('Camera Error: ', response.error);
       } else {
-        // Perform OCR on the captured image 
-        setExtractedText("")
-        setLoadingStatus(true)
+
         performOCR(response.assets[0]);
       }
     });
@@ -64,8 +60,7 @@ function Camera() {
       .then((response) => response.json())
       .then((result) => {
         console.log(result)
-        // Set the extracted text in state 
-        setLoadingStatus(false)
+        // Set the extracted text in sta
         setExtractedText(result["all_text"]);
       })
       .catch((error) => console.log("error", error));
@@ -74,21 +69,27 @@ function Camera() {
   // code for useeffect
   useEffect(() => {
     pickImageCamera()
-  }, [])
+  },[])
+
+  useFocusEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      pickImageCamera();
+    });
+    return unsubscribe;
+  });
+
   return (
     <View style={cameraStyle.mainView}>
       
       <Text style={{ fontSize: 25, marginTop: 10, color: "orangered", fontWeight: "normal" }}>Select Price</Text>
-      <ActivityIndicator size="large" animating={loadingStatus} />
-      <ScrollView>
+
         <View style={{ paddingLeft: 20, paddingRight: 20 }}>
           <Text style={cameraStyle.detectedText}>
             {extractedText}
           </Text>
         </View>
-      </ScrollView>
 
-      <View style={{ flexDirection: 'row', justifyContent: "space-around", marginTop: 30 }}>
+      {/* <View style={{ flexDirection: 'row', justifyContent: "space-around", marginTop: 30 }}>
 
         <Button icon={require('../Img/cross.png')} mode="outlined" color='red' style={{ borderRadius: 2, backgroundColor: "white", width: '45%' }} dark={true} >
           Cancel
@@ -100,7 +101,7 @@ function Camera() {
         </Button>
 
 
-      </View>
+      </View> */}
 
     </View>
   )
